@@ -276,6 +276,8 @@ blockquote {
   .talent-image-wrap { max-width: 520px; }
   .company-layout { gap: 20px; }
   .section { padding: 88px 0; }
+  /* iOS Safari では background-attachment:fixed が背景を拡大・ズレさせるため、モバイルではスクロール追従に切り替える */
+  .patterned { background-attachment: scroll; }
 }
 @media (max-width: 560px) {
   .container { width: min(100% - 30px, var(--max)); }
