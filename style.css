@@ -271,6 +271,8 @@ blockquote {
     border-bottom: 1px solid rgba(255,255,255,.12);
   }
   .nav.open { display: flex; }
+  /* 縦長画面では cover により背景の「UNITED INNOVATION」文字が中央へ寄り、見出しと重なるため、見出しが暗部に乗るよう背景を左へ寄せる */
+  .hero { background-position: 22% center; }
   .business-grid, .two-column, .talent-profile, .company-layout { grid-template-columns: 1fr; }
   .talent-profile { gap: 46px; }
   .talent-image-wrap { max-width: 520px; }
