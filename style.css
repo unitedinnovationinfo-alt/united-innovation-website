@@ -61,8 +61,8 @@ img { display: block; max-width: 100%; }
 
 /* ヒーローはヘッダー・コピー・見出しがすべて埋め込まれた画像そのものを、
    どの画面でも全体が欠けずに表示する。
-   画像上部のヘッダーデザインと実ヘッダー(固定)がちょうど重なり、
-   ひとつのヘッダーとして見えるようにする */
+   モバイル・タブレットの縦長画面では画面幅いっぱいに表示し、
+   画像上部のヘッダーデザインが実ヘッダーと重なって単一ヘッダーに見えるようにする */
 .hero {
   display: flex;
   justify-content: center;
@@ -73,10 +73,23 @@ img { display: block; max-width: 100%; }
   display: block;
   width: 100%;
   height: auto;
-  /* 画像上部のヘッダー(高さ約90px/元画像)が実ヘッダー(78px)とほぼ一致し、
-     ひとつのヘッダーとして重なる幅に制限する（広い画面では中央寄せ） */
-  max-width: 890px;
   margin: 0 auto;
+}
+
+/* PC(横長画面)では縦長画像が画面からはみ出さないよう高さ基準で表示し、
+   ヘッダーの下の領域に上下中央で配置する。左右の黒余白は最小限に抑える */
+@media (min-width: 901px) {
+  .hero {
+    min-height: 100vh;
+    align-items: center;
+    /* 固定ヘッダー(78px)と画像が重ならないよう、その分だけ表示領域を下げる */
+    padding-top: 78px;
+  }
+  .hero-image {
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 78px);
+  }
 }
 .eyebrow {
   margin: 0 0 18px;
