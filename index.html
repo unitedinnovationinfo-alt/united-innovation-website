@@ -27,11 +27,16 @@
 
   <main>
     <section id="home" class="hero">
-      <img
-        class="hero-image"
-        src="assets/hero-city.jpeg"
-        alt="UNITED INNOVATION｜唯一無二の価値を、社会へ。人とアイデアの可能性を広げ、新しい表現とビジネスを生み出す。"
-      />
+      <picture>
+        <!-- PC(横長画面)ではヘッダー・コピー内蔵の横長画像を使用 -->
+        <source media="(min-width: 901px)" srcset="assets/hero-city-wide.jpeg" />
+        <!-- スマートフォン・タブレットでは従来の縦長画像を使用 -->
+        <img
+          class="hero-image"
+          src="assets/hero-city.jpeg"
+          alt="UNITED INNOVATION｜唯一無二の価値を、社会へ。人とアイデアの可能性を広げ、新しい表現とビジネスを生み出す。"
+        />
+      </picture>
     </section>
 
     <section id="business" class="section patterned">

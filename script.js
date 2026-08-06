@@ -13,6 +13,16 @@ document.querySelectorAll(".nav a").forEach((link) => {
   });
 });
 
+// PCでは画像内にヘッダーが含まれるため、最上部では実ヘッダーを隠し、
+// スクロール時にナビゲーション用ヘッダーを表示する（CSS側でPCのみ適用）
+const header = document.querySelector(".header");
+const onScroll = () => {
+  if (window.scrollY > 80) header.classList.add("scrolled");
+  else header.classList.remove("scrolled");
+};
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) entry.target.classList.add("visible");

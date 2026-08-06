@@ -76,19 +76,27 @@ img { display: block; max-width: 100%; }
   margin: 0 auto;
 }
 
-/* PC(横長画面)では縦長画像が画面からはみ出さないよう高さ基準で表示し、
-   ヘッダーの下の領域に上下中央で配置する。左右の黒余白は最小限に抑える */
+/* PC(横長画面)ではヘッダー・コピーが埋め込まれた横長画像を画面幅いっぱいに表示する。
+   引き伸ばし・見切れ・左右の余白が出ないよう width:100% / height:auto で自然に表示 */
 @media (min-width: 901px) {
   .hero {
-    min-height: 100vh;
-    align-items: center;
-    /* 固定ヘッダー(78px)と画像が重ならないよう、その分だけ表示領域を下げる */
-    padding-top: 78px;
+    min-height: 0;
+    align-items: flex-start;
+    padding-top: 0;
   }
   .hero-image {
-    width: auto;
+    width: 100%;
     max-width: 100%;
-    max-height: calc(100vh - 78px);
+    height: auto;
+  }
+  /* 画像内にヘッダー(ロゴ・メニュー)が含まれるため、最上部では実ヘッダーを隠して
+     二重表示を防ぐ。スクロールするとナビゲーション用の実ヘッダーが現れる */
+  .header {
+    transition: transform .35s ease, background .35s ease;
+  }
+  .header:not(.scrolled) {
+    transform: translateY(-100%);
+    pointer-events: none;
   }
 }
 .eyebrow {
