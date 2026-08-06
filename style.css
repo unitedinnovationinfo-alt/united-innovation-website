@@ -64,14 +64,17 @@ img { display: block; max-width: 100%; }
   display: flex;
   align-items: center;
   position: relative;
-  background: center / cover no-repeat url("assets/hero.jpeg");
+  overflow: hidden;
+  /* 夜景の高層ビルと海。空（暗部）が左上に来るよう中央やや上寄せで表示 */
+  background: 50% 42% / cover no-repeat url("assets/hero-city.jpeg");
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
+  /* 見出し・説明文が乗る左側を暗くし、写真内の明るいビル群と文字が重ならないようにする */
   background:
-    linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.36) 58%, rgba(0,0,0,.18) 100%),
-    linear-gradient(0deg, rgba(0,0,0,.72), transparent 45%);
+    linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.52) 46%, rgba(0,0,0,.2) 100%),
+    linear-gradient(0deg, rgba(0,0,0,.72), transparent 46%);
 }
 .hero-content {
   position: relative;
@@ -201,6 +204,56 @@ blockquote {
 }
 .sns-note { color: #858585; font-size: .82rem; }
 
+/* 業務提携インフルエンサーネットワーク */
+.network-panel {
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: clamp(36px, 6vw, 76px);
+  align-items: center;
+  padding: clamp(38px, 5vw, 60px);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(197,154,82,.1), rgba(10,10,10,.2) 42%),
+    rgba(8,8,8,.82);
+}
+.network-figure { text-align: center; }
+.network-number {
+  font-family: "Playfair Display", "Noto Sans JP", serif;
+  font-weight: 600;
+  line-height: 1;
+  font-size: clamp(4.4rem, 13vw, 8.4rem);
+  color: var(--gold-light);
+  letter-spacing: .01em;
+}
+.network-number small {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  color: var(--gold);
+}
+.network-figure .network-caption {
+  margin-top: 10px;
+  color: var(--gray);
+  font-size: .82rem;
+  letter-spacing: .14em;
+}
+.network-content h3 {
+  margin-bottom: 22px;
+  font-family: "Playfair Display", "Noto Sans JP", serif;
+  font-size: clamp(1.5rem, 3.4vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.network-content p { color: var(--gray); margin: 0 0 16px; }
+.network-content p:last-child { margin-bottom: 0; }
+.network-genres { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.network-genres span {
+  padding: 7px 14px;
+  border: 1px solid rgba(197,154,82,.4);
+  color: var(--gold-light);
+  font-size: .78rem;
+}
+
 .company-layout {
   display: grid;
   grid-template-columns: .72fr 1.28fr;
@@ -271,9 +324,12 @@ blockquote {
     border-bottom: 1px solid rgba(255,255,255,.12);
   }
   .nav.open { display: flex; }
-  /* 縦長画面では cover により背景の「UNITED INNOVATION」文字が中央へ寄り、見出しと重なるため、見出しが暗部に乗るよう背景を左へ寄せる */
-  .hero { background-position: 22% center; }
-  .business-grid, .two-column, .talent-profile, .company-layout { grid-template-columns: 1fr; }
+  /* タブレット・縦長画面ではビル群と海が両方見えるよう中央寄せで表示 */
+  .hero { background-position: 50% 48%; }
+  .business-grid, .two-column, .talent-profile, .company-layout, .network-panel { grid-template-columns: 1fr; }
+  .network-panel { text-align: center; }
+  .network-content { text-align: left; }
+  .network-genres { justify-content: flex-start; }
   .talent-profile { gap: 46px; }
   .talent-image-wrap { max-width: 520px; }
   .company-layout { gap: 20px; }
