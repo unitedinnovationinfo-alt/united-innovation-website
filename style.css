@@ -207,7 +207,19 @@ blockquote {
   color: #ddd;
   font-size: .78rem;
 }
-.sns-note { color: #858585; font-size: .82rem; }
+.sns-links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.sns-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1px solid rgba(197,154,82,.4);
+  color: var(--gold-light);
+  font-size: .82rem;
+  letter-spacing: .04em;
+  transition: background .25s ease, color .25s ease;
+}
+.sns-links a:hover { background: var(--gold); color: #080808; }
 
 /* 業務提携インフルエンサーネットワーク */
 .network-panel {
