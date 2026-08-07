@@ -27,16 +27,20 @@
 
   <main>
     <section id="home" class="hero">
-      <picture>
-        <!-- PC(横長画面)ではヘッダー・コピー内蔵の横長画像を使用 -->
-        <source media="(min-width: 901px)" srcset="assets/hero-city-wide.jpeg" />
-        <!-- スマートフォン・タブレットでは従来の縦長画像を使用 -->
-        <img
-          class="hero-image"
-          src="assets/hero-city.jpeg"
-          alt="UNITED INNOVATION｜唯一無二の価値を、社会へ。人とアイデアの可能性を広げ、新しい表現とビジネスを生み出す。"
-        />
-      </picture>
+      <div class="hero-media">
+        <picture>
+          <!-- PC(横長画面)ではヘッダー・コピー内蔵の横長画像を使用 -->
+          <source media="(min-width: 901px)" srcset="assets/hero-city-wide.jpeg" />
+          <!-- スマートフォン・タブレットでは従来の縦長画像を使用 -->
+          <img
+            class="hero-image"
+            src="assets/hero-city.jpeg"
+            alt="UNITED INNOVATION｜唯一無二の価値を、社会へ。人とアイデアの可能性を広げ、新しい表現とビジネスを生み出す。"
+          />
+        </picture>
+        <!-- 画像内の「事業を見る」ボタン位置に重ねる透明リンク。デザインは変えず事業内容へスクロール -->
+        <a class="hero-cta" href="#business" aria-label="事業内容セクションへ移動する"></a>
+      </div>
     </section>
 
     <section id="business" class="section patterned">

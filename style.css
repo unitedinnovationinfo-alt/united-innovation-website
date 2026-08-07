@@ -69,6 +69,11 @@ img { display: block; max-width: 100%; }
   align-items: flex-start;
   background: var(--black);
 }
+/* 画像を基準に透明リンクを重ねるためのラッパー。画像の高さぴったりに収まる */
+.hero-media {
+  position: relative;
+  width: 100%;
+}
 /* picture はデフォルトで content 幅になるため、画面幅いっぱいに広げる */
 .hero picture {
   display: block;
@@ -79,6 +84,16 @@ img { display: block; max-width: 100%; }
   width: 100%;
   height: auto;
   margin: 0 auto;
+}
+/* 画像内の「事業を見る」ボタン位置に重ねる透明クリック領域(スマホ・タブレット=縦長画像基準) */
+.hero-cta {
+  position: absolute;
+  left: 3.5%;
+  top: 60.5%;
+  width: 26%;
+  height: 7.5%;
+  z-index: 2;
+  cursor: pointer;
 }
 
 /* PC(横長画面)ではヘッダー・コピーが埋め込まれた横長画像を画面幅いっぱいに表示する。
@@ -93,6 +108,13 @@ img { display: block; max-width: 100%; }
     width: 100%;
     max-width: 100%;
     height: auto;
+  }
+  /* PCは横長画像基準でボタン位置を上書き */
+  .hero-cta {
+    left: 6.5%;
+    top: 71%;
+    width: 15%;
+    height: 9%;
   }
   /* 画像内にヘッダー(ロゴ・メニュー)が含まれるため、最上部では実ヘッダーを隠して
      二重表示を防ぐ。スクロールするとナビゲーション用の実ヘッダーが現れる */
@@ -121,6 +143,8 @@ h1 {
 }
 
 .section { padding: 120px 0; }
+/* 「事業を見る」からのアンカー移動時、見出しが固定ヘッダー(78px)に隠れないよう余白を確保 */
+#business { scroll-margin-top: 90px; }
 .black { background: var(--black); }
 .patterned {
   background:
