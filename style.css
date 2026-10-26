@@ -406,7 +406,6 @@ a.card:hover .more { color: var(--gold); }
   font-weight: 400;
 }
 .inline-accent { color: var(--gold-light); font-weight: 700; }
-.yamagata-hub-link { margin-top: 26px; }
 
 /* ============================================================
    詳細ページ（枝分かれページ）共通スタイル
